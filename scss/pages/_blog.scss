@@ -1,0 +1,206 @@
+.blogpage {
+    .main {
+        .blog {
+            margin-top: var(--height-header);
+            padding-top: 68px;
+            padding-bottom: 92px;
+
+            .textbox {
+                display: grid;
+                grid-template-columns: repeat(12, 1fr);
+                gap: var(--gutter);
+
+                .heading {
+                    grid-column: 1/7;
+                    grid-row: 1/2;
+                }
+
+                .des {
+                    grid-column: 7/13;
+                    grid-row: 1/2;
+                }
+            }
+
+            &__thumb {
+                margin-top: 48px;
+                display: flex;
+                background-color: var(--deep-blue);
+                border-radius: 40px;
+                overflow: hidden;
+                justify-content: space-between;
+
+                &--content {
+                    padding: 58px 0 58px 47px;
+                    max-width: calc((100%*5)/12);
+
+                    .title {
+                        margin-top: 21px;
+                        margin-bottom: 16px;
+
+                        a {
+                            @include formatText(DB, 2.8rem, 4rem, 0.28px);
+                            @include durationTime(0.3s);
+
+                            &:hover {
+                                color: var(--prim-cl);
+                            }
+                        }
+                    }
+                }
+
+                &--img {
+                    width: 50%;
+                    display: flex;
+                    aspect-ratio: 586/334;
+                    overflow: hidden;
+
+                    img {
+                        @include images;
+                    }
+                }
+            }
+        }
+
+        .subscribe {
+            background-color: var(--prim-cl);
+            padding: 84px 0;
+
+            .container {
+                display: grid;
+                grid-template-columns: repeat(12, 1fr);
+                gap: var(--gutter);
+                align-items: center;
+            }
+
+            &__content {
+                grid-column: 1/8;
+                grid-row: 1/2;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 25px;
+
+                &--icon {
+                    flex-shrink: 0;
+                }
+            }
+
+            &__form {
+                grid-column: 8/13;
+                grid-row: 1/2;
+                height: 80px;
+
+                &--mail {
+                    height: 100%;
+                    width: 100%;
+                    display: inline-block;
+                    position: relative;
+
+                    #email {
+                        height: 100%;
+                        width: 100%;
+                        border-radius: 100px;
+                        padding-right: 160px;
+                        padding-left: 16px;
+
+                        &::placeholder {
+                            color: var(--black-cl);
+                        }
+                    }
+
+                    #mail-btn {
+                        height: 64px;
+                        position: absolute;
+                        right: 8px;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        border-radius: 100px;
+                        @include formatText(DB, 1.4rem, 1.6rem, 1.6px);
+                        text-transform: uppercase;
+                        background-color: var(--prim-cl);
+                        padding: 0 26px;
+                        cursor: pointer;
+                        @include durationTime(0.3s);
+
+                        &:hover {
+                            opacity: 0.8;
+                        }
+                    }
+                }
+            }
+        }
+
+        .post {
+            padding-top: 148px;
+            padding-bottom: 80px;
+
+            &__list {
+                margin-top: 56px;
+
+                .wrap {
+                    display: grid;
+                    grid-template-columns: repeat(3, 1fr);
+                    gap: var(--gutter);
+                }
+
+                &--item {
+                    background-color: var(--deep-blue);
+                    border-radius: 40px;
+                    overflow: hidden;
+
+                    .img {
+                        overflow: hidden;
+                        aspect-ratio: 382/215;
+                        display: flex;
+
+                        img {
+                            @include images;
+                            @include durationTime(0.3s);
+
+                            &:hover {
+                                transform: scale(1.05);
+                            }
+                        }
+                    }
+
+                    .info {
+                        padding: 43px 23px 34px 23px;
+                        position: relative;
+
+                        .tag {
+                            position: absolute;
+                            top: 0;
+                            left: 23px;
+                            transform: translateY(-50%);
+                        }
+
+                        &__content {
+                            padding-bottom: 40px;
+                            margin-bottom: 23px;
+                            border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+
+                            .heading {
+                                margin-bottom: 16px;
+
+                                a {
+                                    color: var(--white-cl);
+                                    text-transform: capitalize;
+                                    @include formatText(DB, 2.2rem, 3.1rem, 0);
+                                    @include durationTime(0.3s);
+
+                                    &:hover {
+                                        color: var(--prim-cl);
+                                    }
+                                }
+                            }
+
+                            &--des {
+                                @include overText(3);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
